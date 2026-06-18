@@ -5,32 +5,25 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "CallHQ",
-    category: "Voice AI Calling Platform",
-    tools: "Voice AI, Calling Automation, CRM Integrations",
-    image: "/images/callhq.png",
-    link: "https://callhq.ai",
+    title: "Semina",
+    category: "AI Plant Care Mobile App (Capstone)",
+    tools: "React Native, Expo, TypeScript, Supabase, OpenAI API, AR",
+    image: "/images/semina.png",
+    link: "https://seminaca.vercel.app",
   },
   {
-    title: "Whatsapp Automation",
-    category: "WABA Application",
-    tools: "WhatsApp Business API, Workflow Automation, Notifications",
-    image: "/images/whatsapp.png",
-    link: "https://whatsapp.callhq.ai",
+    title: "BloomUp",
+    category: "Parenting Support Platform (Team Project)",
+    tools: "React, Node.js, Express, MongoDB, Socket.IO, Tailwind CSS",
+    image: "/images/bloomup.png",
+    link: "https://bloomup.wmdd.ca",
   },
   {
-    title: "Broki",
-    category: "Real Estate Platform for FnB Industry",
-    tools: "Property Discovery, Lead Management, Marketplace Workflows",
-    image: "/images/broki.png",
-    link: "https://broki.in",
-  },
-  {
-    title: "Orrdr.com",
-    category: "Ecommerce Platform and Mobile App",
-    tools: "Ecommerce, Mobile Experience, Order Management",
-    image: "/images/orrdr.png",
-    link: "https://orrdr.com",
+    title: "ParkSmart",
+    category: "Vancouver Parking Finder (Team Project)",
+    tools: "HTML, CSS, JavaScript, Firebase, Geolocation API",
+    image: "/images/parksmart.png",
+    link: "https://parksmart-sable.vercel.app",
   },
 ];
 

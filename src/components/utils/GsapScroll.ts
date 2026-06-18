@@ -48,6 +48,13 @@ export function setCharTimeline(
         }
       });
     }
+    if (object.name === "Plane008") {
+      if (object.material) {
+        const mats = Array.isArray(object.material) ? object.material : [object.material];
+        mats.forEach((m: any) => { m.transparent = true; m.opacity = 0; });
+        monitor = object;
+      }
+    }
     if (object.name === "screenlight") {
       object.material.transparent = true;
       object.material.opacity = 0;
