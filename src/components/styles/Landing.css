@@ -262,6 +262,12 @@ h2.landing-info-h2 {
   left: 0;
 }
 
+@media screen and (max-width: 1024px) {
+  .landing-info-h2::after {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 500px) {
   .landing-circle2 {
     display: block;
