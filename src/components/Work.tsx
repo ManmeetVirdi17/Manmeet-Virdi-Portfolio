@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
@@ -52,6 +52,13 @@ const Work = () => {
       currentIndex === projects.length - 1 ? 0 : currentIndex + 1;
     goToSlide(newIndex);
   }, [currentIndex, goToSlide]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goToNext();
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [goToNext]);
 
   return (
     <div className="work-section" id="work">
