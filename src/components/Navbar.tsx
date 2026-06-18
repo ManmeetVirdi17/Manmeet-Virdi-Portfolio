@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HoverLinks from "./HoverLinks";
 import { gsap } from "gsap";
@@ -9,6 +9,8 @@ gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     smoother = ScrollSmoother.create({
       wrapper: "#smooth-wrapper",
@@ -39,14 +41,23 @@ const Navbar = () => {
       ScrollSmoother.refresh(true);
     });
   }, []);
+
+  const handleMobileNav = (href: string) => {
+    setMenuOpen(false);
+    setTimeout(() => {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+  };
+
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
           MV
         </a>
-        <a
-          href="https://www.linkedin.com/in/manmeetvirdi17/"
+        
+          <a href="https://www.linkedin.com/in/manmeetvirdi17/"
           className="navbar-connect"
           data-cursor="disable"
           target="_blank"
@@ -55,22 +66,21 @@ const Navbar = () => {
           linkedin.com/in/manmeetvirdi17
         </a>
         <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
+          <li><a data-href="#about" href="#about"><HoverLinks text="ABOUT" /></a></li>
+          <li><a data-href="#work" href="#work"><HoverLinks text="WORK" /></a></li>
+          <li><a data-href="#contact" href="#contact"><HoverLinks text="CONTACT" /></a></li>
         </ul>
+        <div className={`hamburger ${menuOpen ? "open" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <a onClick={() => handleMobileNav("#about")}>ABOUT</a>
+        <a onClick={() => handleMobileNav("#work")}>WORK</a>
+        <a onClick={() => handleMobileNav("#contact")}>CONTACT</a>
       </div>
 
       <div className="landing-circle1"></div>
